@@ -33,7 +33,7 @@ public class Potions : MonoBehaviour
         // animator.SetTrigger("use");
 
         potionChannel.Raise(this, name);
-        button.interactable = false;
+        // button.interactable = false;
     }
 
     // public void RefillPotion() {

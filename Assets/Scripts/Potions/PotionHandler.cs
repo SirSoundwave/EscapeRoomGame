@@ -26,8 +26,9 @@ public class PotionHandler : MonoBehaviour
         {
             potions.Add((string) data);
             Debug.Log((string) data);
-            Debug.Log((string) potions[0]);
         }
+
+        Debug.Log(potions.Count);
 
         if (potions.Count == 3 && potions[0] == "Pink Potion" && potions[1] == "Blue Potion" && potions[2] == "Yellow Potion") {
             Debug.Log("Hooray!");
