@@ -7,7 +7,7 @@ public class PotionBook : MonoBehaviour
     public GameObject menu;
     public Animator animator;
 
-    public void Menu(string text) {
+    public void Menu() {
         menu.SetActive(true);
         animator.SetTrigger("open");
     }

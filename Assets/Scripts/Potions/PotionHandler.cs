@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PotionHandler : MonoBehaviour
 {
+    public GameEvent potionChannel;
+    
     private List<string> potions;
 
     // Start is called before the first frame update
@@ -24,7 +26,15 @@ public class PotionHandler : MonoBehaviour
         {
             potions.Add((string) data);
             Debug.Log((string) data);
+            Debug.Log((string) potions[0]);
         }
-        
+
+        if (potions.Count == 3 && potions[0] == "Pink Potion" && potions[1] == "Blue Potion" && potions[2] == "Yellow Potion") {
+            Debug.Log("Hooray!");
+        } else if (potions.Count == 3) {
+            potionChannel.Raise(this, 0);
+            potions = new List<string>();
+            Debug.Log("boo hoo");
+        }
     }
 }
