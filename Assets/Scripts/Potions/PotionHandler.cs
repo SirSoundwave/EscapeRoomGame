@@ -5,6 +5,7 @@ using UnityEngine;
 public class PotionHandler : MonoBehaviour
 {
     public GameEvent potionChannel;
+    public GameEvent uiChannel;
     
     private List<string> potions;
 
@@ -12,12 +13,6 @@ public class PotionHandler : MonoBehaviour
     void Start()
     {
         potions = new List<string>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void UpdatePotion(Component sender, object data)
@@ -31,6 +26,7 @@ public class PotionHandler : MonoBehaviour
         Debug.Log(potions.Count);
 
         if (potions.Count == 3 && potions[0] == "Pink Potion" && potions[1] == "Blue Potion" && potions[2] == "Yellow Potion") {
+            uiChannel.Raise(this, 0);
             Debug.Log("Hooray!");
         } else if (potions.Count == 3) {
             potionChannel.Raise(this, 0);
