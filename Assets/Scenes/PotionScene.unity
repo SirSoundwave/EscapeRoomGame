@@ -298,18 +298,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 76727268}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: use
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 76727264}
         m_TargetAssemblyTypeName: Potions, Assembly-CSharp
         m_MethodName: UsePotion
@@ -397,10 +385,10 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 76727268}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 76727264}
+        m_TargetAssemblyTypeName: Potions, Assembly-CSharp
+        m_MethodName: TriggerRefill
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -532,7 +520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionChannel: {fileID: 11400000, guid: afca8edcf1d7de84893000f7281a6710, type: 2}
-  uiChannel: {fileID: 11400000, guid: 2895b7dd5db175c44bcd26dac216b93b, type: 2}
+  completionChannel: {fileID: 11400000, guid: 2895b7dd5db175c44bcd26dac216b93b, type: 2}
+  uiChannel: {fileID: 11400000, guid: 611926cc7f8956c43a8dcc204b60d3f5, type: 2}
 --- !u!1 &279874505
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,18 +695,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 293972521}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: use
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 293972517}
         m_TargetAssemblyTypeName: Potions, Assembly-CSharp
         m_MethodName: UsePotion
@@ -805,10 +782,10 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 293972521}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 293972517}
+        m_TargetAssemblyTypeName: Potions, Assembly-CSharp
+        m_MethodName: TriggerRefill
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -911,6 +888,8 @@ GameObject:
   - component: {fileID: 655301816}
   - component: {fileID: 655301818}
   - component: {fileID: 655301817}
+  - component: {fileID: 655301820}
+  - component: {fileID: 655301821}
   m_Layer: 5
   m_Name: Left Page
   m_TagString: Untagged
@@ -935,7 +914,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 5, y: -15}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 165, y: 170}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &655301817
 MonoBehaviour:
@@ -1053,6 +1032,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655301815}
   m_CullTransparentMesh: 1
+--- !u!114 &655301820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655301815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 63fea5ddadcc33445a2d9bb13f21839a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 655301821}
+        m_TargetAssemblyTypeName: LeftPage, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &655301821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655301815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e8885c8b4af4640baafd908627d299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  page: {fileID: 655301817}
 --- !u!1 &705247070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,18 +1171,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 705247076}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: use
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 705247072}
         m_TargetAssemblyTypeName: Potions, Assembly-CSharp
         m_MethodName: UsePotion
@@ -1250,10 +1258,10 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 705247076}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 705247072}
+        m_TargetAssemblyTypeName: Potions, Assembly-CSharp
+        m_MethodName: TriggerRefill
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1724,18 +1732,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1003279762}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: use
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1003279758}
         m_TargetAssemblyTypeName: Potions, Assembly-CSharp
         m_MethodName: UsePotion
@@ -1823,10 +1819,10 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1003279762}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 1003279758}
+        m_TargetAssemblyTypeName: Potions, Assembly-CSharp
+        m_MethodName: TriggerRefill
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1846,7 +1842,6 @@ GameObject:
   - component: {fileID: 1037230394}
   - component: {fileID: 1037230396}
   - component: {fileID: 1037230395}
-  - component: {fileID: 1037230397}
   m_Layer: 5
   m_Name: Puzzle Solved
   m_TagString: Untagged
@@ -1913,34 +1908,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037230393}
   m_CullTransparentMesh: 1
---- !u!114 &1037230397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037230393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 2895b7dd5db175c44bcd26dac216b93b, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1248345761}
-        m_TargetAssemblyTypeName: ExitPuzzle, Assembly-CSharp
-        m_MethodName: Display
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1073159767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2053,8 @@ GameObject:
   - component: {fileID: 1130528283}
   - component: {fileID: 1130528285}
   - component: {fileID: 1130528284}
+  - component: {fileID: 1130528286}
+  - component: {fileID: 1130528287}
   m_Layer: 5
   m_Name: Right Page
   m_TagString: Untagged
@@ -2107,11 +2076,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1453895509}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6, y: -33.5}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 62, y: -33.500164}
+  m_SizeDelta: {x: 173, y: 110}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1130528284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2222,6 +2191,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130528282}
   m_CullTransparentMesh: 1
+--- !u!114 &1130528286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130528282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: eaad10843264b0d4c92314f8eec3eb98, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1130528287}
+        m_TargetAssemblyTypeName: RightPage, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1130528287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130528282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17fc03ecc8bee14eaace8c5d832ea48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  page: {fileID: 1130528284}
 --- !u!1 &1248345756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,6 +2245,7 @@ GameObject:
   - component: {fileID: 1248345758}
   - component: {fileID: 1248345757}
   - component: {fileID: 1248345761}
+  - component: {fileID: 1248345762}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2344,6 +2355,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1037230393}
   backButton: {fileID: 894239008}
+--- !u!114 &1248345762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248345756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2895b7dd5db175c44bcd26dac216b93b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1248345761}
+        m_TargetAssemblyTypeName: ExitPuzzle, Assembly-CSharp
+        m_MethodName: Display
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1266623448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2476,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: close
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1368011991}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1266623451
 MonoBehaviour:
@@ -2570,6 +2621,18 @@ MonoBehaviour:
           m_StringArgument: open
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1368011991}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1368011992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2620,6 +2683,8 @@ GameObject:
   - component: {fileID: 1453895511}
   - component: {fileID: 1453895510}
   - component: {fileID: 1453895512}
+  - component: {fileID: 1453895513}
+  - component: {fileID: 1453895514}
   m_Layer: 5
   m_Name: Open Potion Book
   m_TagString: Untagged
@@ -2710,6 +2775,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1453895513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453895508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0694543a03f9b1b4bb9f09d46440ed9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftPage: {fileID: 11400000, guid: 63fea5ddadcc33445a2d9bb13f21839a, type: 2}
+  rightPage: {fileID: 11400000, guid: eaad10843264b0d4c92314f8eec3eb98, type: 2}
+--- !u!114 &1453895514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453895508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 611926cc7f8956c43a8dcc204b60d3f5, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1453895513}
+        m_TargetAssemblyTypeName: BookText, Assembly-CSharp
+        m_MethodName: GenerateText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1662330337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,10 +2933,10 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1662330339}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 1662330343}
+        m_TargetAssemblyTypeName: Potions, Assembly-CSharp
+        m_MethodName: TriggerRefill
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2895,18 +3002,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1662330339}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: use
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1662330343}
         m_TargetAssemblyTypeName: Potions, Assembly-CSharp
         m_MethodName: UsePotion
@@ -3376,7 +3471,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 15, y: -6.5}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 125, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2102730283
 MonoBehaviour:
