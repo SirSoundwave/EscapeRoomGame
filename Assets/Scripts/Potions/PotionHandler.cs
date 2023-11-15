@@ -23,14 +23,15 @@ public class PotionHandler : MonoBehaviour
             Debug.Log((string) data);
         }
 
-        Debug.Log(potions.Count);
+        //Debug.Log(potions.Count);
 
         if (potions.Count == 3 && potions[0] == "Pink Potion" && potions[1] == "Blue Potion" && potions[2] == "Yellow Potion") {
             uiChannel.Raise(this, 0);
             Debug.Log("Hooray!");
         } else if (potions.Count == 3) {
-            potionChannel.Raise(this, 0);
+            
             potions = new List<string>();
+            potionChannel.Raise(this, 0);
             Debug.Log("boo hoo");
         }
     }
