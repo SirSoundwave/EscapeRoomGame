@@ -8,16 +8,14 @@ public class PotionHandler : MonoBehaviour
     public GameEvent completionChannel;
     public GameEvent uiChannel;
     
-    //private List<string> potions;
     private List<int> numbers;
-    private List<int> potionList;
+    private List<int> potions;
 
     // Start is called before the first frame update
     void Start()
     {
-        //potions = new List<string>();
         numbers = new List<int>();
-        potionList = new List<int>();
+        potions = new List<int>();
 
         for (int i = 0; i < 3; i++) {
             System.Random rand = new System.Random();
@@ -45,40 +43,27 @@ public class PotionHandler : MonoBehaviour
         {
             string pot = (string) data;
             if (pot == "Pink Potion") {
-                potionList.Add(1);
+                potions.Add(1);
             } else if (pot == "Red Potion") {
-                potionList.Add(2);
+                potions.Add(2);
             } else if (pot == "Orange Potion") {
-                potionList.Add(3);
+                potions.Add(3);
             } else if (pot == "Blue Potion") {
-                potionList.Add(4);
+                potions.Add(4);
             } else if (pot == "Yellow Potion") {
-                potionList.Add(5);
+                potions.Add(5);
             }
 
-            // potions.Add((string) data);
             Debug.Log((string) data);
         }
 
-        //Debug.Log(potions.Count);
-
-        if (potionList.Count == 3 && potionList[0] == numbers[0] && potionList[1] == numbers[1] && potionList[2] == numbers[2]) {
+        if (potions.Count == 3 && potions[0] == numbers[0] && potions[1] == numbers[1] && potions[2] == numbers[2]) {
             completionChannel.Raise(this, 0);
             Debug.Log("Hooray!");
-        } else if (potionList.Count == 3) {
-            potionList = new List<int>();
+        } else if (potions.Count == 3) {
+            potions = new List<int>();
             potionChannel.Raise(this, 0);
             Debug.Log("boo hoo");
         }
-
-        // if (potions.Count == 3 && potions[0] == "Pink Potion" && potions[1] == "Blue Potion" && potions[2] == "Yellow Potion") {
-        //     uiChannel.Raise(this, 0);
-        //     Debug.Log("Hooray!");
-        // } else if (potions.Count == 3) {
-            
-        //     potions = new List<string>();
-        //     potionChannel.Raise(this, 0);
-        //     Debug.Log("boo hoo");
-        // }
     }
 }
