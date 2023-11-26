@@ -16,6 +16,6 @@ MonoBehaviour:
   - puzzleName: Slide Puzzle
     completed: 0
   - puzzleName: Pipe Puzzle
-    completed: 0
+    completed: 1
   - puzzleName: Potion Puzzle
     completed: 0

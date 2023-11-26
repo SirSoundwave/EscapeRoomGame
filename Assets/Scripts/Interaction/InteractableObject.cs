@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableObject : CollidableObject
 {
 
-    private bool z_Interacted = false;
+    protected bool z_Interacted = false;
     public GameEvent InteractionEvent;
     public int data = 0;
 
@@ -21,6 +21,7 @@ public class InteractableObject : CollidableObject
 
     private void OnInteract()
     {
+        Debug.Log("Interacted: " + z_Interacted);
         if (!z_Interacted)
         {
             z_Interacted = true;

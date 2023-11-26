@@ -7,4 +7,10 @@ public class PuzzleBlock
 {
     public string puzzleName;
     public bool completed;
+
+    public PuzzleBlock(string puzzleName, bool completed)
+    {
+        this.puzzleName = puzzleName;
+        this.completed = completed;
+    }
 }
