@@ -27,6 +27,8 @@ public class PipeScript : MonoBehaviour
 
     public LayerMask EndLayer;
 
+    public GameEvent audioTrigger;
+
     private void Start()
     {
         if (moveable)
@@ -108,6 +110,7 @@ public class PipeScript : MonoBehaviour
     {
         if (moveable)
         {
+            audioTrigger.Raise(this, "PipeMove");
             transform.Rotate(0, 0, 90);
             transform.eulerAngles = new Vector3(0, 0, Mathf.Round(transform.eulerAngles.z));
         }
