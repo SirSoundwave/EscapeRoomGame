@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1978aa0d14006be4ea4ecacb5fcaab47, type: 3}
+  m_Script: {fileID: 11500000, guid: b409d865ace02c64ebdd2631c680b076, type: 3}
   m_Name: PotionBookRight
   m_EditorClassIdentifier: 
   listeners: []
