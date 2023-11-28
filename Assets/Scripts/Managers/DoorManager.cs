@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    private Door[] doors;
+    [HideInInspector]
+    public Door[] doors;
 
-    private void Start()
+    private void Awake()
     {
         doors = GetComponentsInChildren<Door>();
     }

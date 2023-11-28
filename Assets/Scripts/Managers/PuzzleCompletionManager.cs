@@ -15,9 +15,9 @@ public class PuzzleCompletionManager : MonoBehaviour
 
     public List<PuzzleCompletionCapsule> signals;
 
-    private void Start()
+    public void LoadPuzzleData()
     {
-        for(int i = 0; i < puzzleInfo.puzzles.Count; i++)
+        for (int i = 0; i < puzzleInfo.puzzles.Count; i++)
         {
             if (puzzleInfo.puzzles[i].completed)
             {

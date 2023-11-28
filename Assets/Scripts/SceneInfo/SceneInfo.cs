@@ -6,4 +6,7 @@ using UnityEngine;
 public class SceneInfo : ScriptableObject
 {
     public Vector3 playerPosition;
+
+    public List<DoorData> doors;
+
 }

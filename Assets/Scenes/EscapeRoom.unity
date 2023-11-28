@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 269368203}
   - component: {fileID: 269368202}
   - component: {fileID: 269368205}
+  - component: {fileID: 269368206}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -242,6 +243,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: ec73703329ea6754ba079f4d6d1d3a69, type: 2}
   player: {fileID: 1346996960}
+  DoorManager: {fileID: 1600278650}
+--- !u!114 &269368206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269368201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd3f801f7286624ba31f96b907bc976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 269368205}
+        m_TargetAssemblyTypeName: SceneInfoManager, Assembly-CSharp
+        m_MethodName: LoadData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 269368202}
+        m_TargetAssemblyTypeName: PuzzleCompletionManager, Assembly-CSharp
+        m_MethodName: LoadPuzzleData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &375781310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6296746185198456255, guid: 34b618263fca6754e8c4c86429f6a3da, type: 3}
@@ -20400,6 +20441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2133cec6da012f439b86a81a8a7c346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doors: []
 --- !u!1 &1615225081
 GameObject:
   m_ObjectHideFlags: 0
