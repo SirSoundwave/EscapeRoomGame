@@ -15,6 +15,14 @@ public class PuzzleCompletionManager : DataManager
 
     public List<PuzzleCompletionCapsule> signals;
 
+    public void ResetData()
+    {
+        for (int i = 0; i < puzzleInfo.puzzles.Count; i++)
+        {
+            puzzleInfo.puzzles[i].completed = false;
+        }
+    }
+
     public override void LoadData()
     {
         for (int i = 0; i < puzzleInfo.puzzles.Count; i++)

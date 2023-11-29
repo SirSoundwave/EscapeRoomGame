@@ -6,10 +6,17 @@ public class SceneInfoManager : DataManager
 {
 
     public SceneInfo info;
+    public SceneInfo defaultInfo;
 
     public GameObject player;
 
     public DoorManager DoorManager;
+
+    public void ResetData()
+    {
+        info.playerPosition = defaultInfo.playerPosition;
+        info.doors = new List<DoorData>();
+    }
 
     public override void LoadData()
     {
