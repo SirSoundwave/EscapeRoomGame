@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneInfoManager : MonoBehaviour
+public class SceneInfoManager : DataManager
 {
 
     public SceneInfo info;
@@ -11,7 +11,7 @@ public class SceneInfoManager : MonoBehaviour
 
     public DoorManager DoorManager;
 
-    public void LoadData()
+    public override void LoadData()
     {
         player.transform.position = info.playerPosition;
         //Debug.Log("Loaded position: " + info.playerPosition.x + ", " + info.playerPosition.y);
@@ -38,7 +38,7 @@ public class SceneInfoManager : MonoBehaviour
         }
     }
 
-    public void SaveData()
+    public override void SaveData()
     {
         
         info.playerPosition = player.transform.position;

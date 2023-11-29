@@ -9,13 +9,13 @@ public class PuzzleCompletionCapsule
     public int data;
 }
 
-public class PuzzleCompletionManager : MonoBehaviour
+public class PuzzleCompletionManager : DataManager
 {
     public PuzzleInfo puzzleInfo;
 
     public List<PuzzleCompletionCapsule> signals;
 
-    public void LoadPuzzleData()
+    public override void LoadData()
     {
         for (int i = 0; i < puzzleInfo.puzzles.Count; i++)
         {
@@ -24,6 +24,11 @@ public class PuzzleCompletionManager : MonoBehaviour
                 signals[i].channel.Raise(this, signals[i].data);
             }
         }
+    }
+
+    public override void SaveData()
+    {
+        //unused
     }
 
 }

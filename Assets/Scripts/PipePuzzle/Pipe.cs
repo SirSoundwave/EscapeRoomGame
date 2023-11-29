@@ -9,7 +9,7 @@ public enum PipeType
     END
 }
 
-public class PipeScript : MonoBehaviour
+public class Pipe : MonoBehaviour
 {
     float[] rotations = { 0, 90, 180, 270 };
     Dictionary<float, float> oppositeRotations = new Dictionary<float, float>();
@@ -23,11 +23,16 @@ public class PipeScript : MonoBehaviour
     public Sprite emptySprite;
 
     private List<Transform> connectionBoxes = new List<Transform>();
+
+    [SerializeField]
     private bool filled;
 
     public LayerMask EndLayer;
 
     public GameEvent audioTrigger;
+    public GameEvent pipeWipe;
+
+    private bool move = false;
 
     private void Start()
     {
@@ -69,6 +74,7 @@ public class PipeScript : MonoBehaviour
     {
         if (filled)
         {
+            //Debug.Log("showing filled sprite");
             this.GetComponent<SpriteRenderer>().sprite = filledSprite;
         } else
         {
@@ -86,9 +92,9 @@ public class PipeScript : MonoBehaviour
         return filled;
     }
 
-    public List<PipeScript> ConnectedPipes()
+    public List<Pipe> ConnectedPipes()
     {
-        List<PipeScript> result = new List<PipeScript>();
+        List<Pipe> result = new List<Pipe>();
         //Debug.Log("Ends to check: " + connectionBoxes.Count);
         foreach(var box in connectionBoxes)
         {
@@ -99,22 +105,40 @@ public class PipeScript : MonoBehaviour
             for (int i = 0; i < hit.Length; i++)
             {
                 //Debug.Log("hit");
-                result.Add(hit[i].collider.transform.parent.GetComponent<PipeScript>());
+                result.Add(hit[i].collider.transform.parent.GetComponent<Pipe>());
             }
         }
 
         return result;
     }
 
+
     private void OnMouseDown()
     {
         if (moveable)
         {
+            move = true;
+        }
+
+    }
+
+    public void RotatePipe()
+    {
+        if (move)
+        {
+            //Debug.Log("Rotating pipe");
             audioTrigger.Raise(this, "PipeMove");
             transform.Rotate(0, 0, 90);
             transform.eulerAngles = new Vector3(0, 0, Mathf.Round(transform.eulerAngles.z));
+            move = false;
         }
 
+
+        //move = false;
+        //Debug.Log("Self wipe");
+        //move = true;
+        //pipeWipe.Raise(this, null);
+       // Wipe();
     }
 
     public bool isPlaced()
@@ -143,6 +167,16 @@ public class PipeScript : MonoBehaviour
     public void setMoveable(bool moveable)
     {
         this.moveable = moveable;
+    }
+
+    public void Wipe()
+    {
+        if (!pipeType.Equals(PipeType.ORIGIN))
+        {
+            //Debug.Log("Wiped");
+            setFilled(false);
+            UpdateFilled();
+        }
     }
 
 }

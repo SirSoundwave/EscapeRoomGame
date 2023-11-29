@@ -338,7 +338,6 @@ GameObject:
   - component: {fileID: 76727265}
   - component: {fileID: 76727264}
   - component: {fileID: 76727268}
-  - component: {fileID: 76727269}
   - component: {fileID: 76727270}
   m_Layer: 5
   m_Name: Blue Potion
@@ -494,18 +493,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &76727269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76727262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &76727270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,9 +1297,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 655301815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d0d07e87b4d4134f9500dc5ba5e6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 63fea5ddadcc33445a2d9bb13f21839a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 655301821}
+        m_TargetAssemblyTypeName: LeftPage, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &655301821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,9 +2379,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130528282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d0d07e87b4d4134f9500dc5ba5e6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: eaad10843264b0d4c92314f8eec3eb98, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1130528287}
+        m_TargetAssemblyTypeName: RightPage, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1130528287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2388,7 +2407,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130528282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a17fc03ecc8bee14eaace8c5d832ea48, type: 3}
+  m_Script: {fileID: 11500000, guid: b7e8885c8b4af4640baafd908627d299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   page: {fileID: 1130528284}
@@ -2528,8 +2547,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1208f4c1af2294192b3966a34d0369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitActions:
+    m_PersistentCalls:
+      m_Calls: []
   transition: {fileID: 59730588}
   transitionTime: 1
+  saveTime: 1
 --- !u!114 &1248345764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3037,9 +3060,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1453895508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8608eb8e03be874cbfc37ec1e016f64, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d0d07e87b4d4134f9500dc5ba5e6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 611926cc7f8956c43a8dcc204b60d3f5, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1453895513}
+        m_TargetAssemblyTypeName: BookText, Assembly-CSharp
+        m_MethodName: GenerateText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1662330337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,7 +3482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -605205755, guid: c8ce55bb7a889d844aede354feb87e30, type: 3}
+  m_Sprite: {fileID: -1141047450, guid: c8ce55bb7a889d844aede354feb87e30, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

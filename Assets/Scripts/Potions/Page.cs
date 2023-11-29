@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class LeftPage : MonoBehaviour
+public class Page : MonoBehaviour
 {
     public TMP_Text page;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        page.text = "";
+        page.SetText("");
+        //page.fontSize = 11.5f;
     }
 
     public void SetText(Component sender, object data) {
-        page.text = (string) data;
+        Debug.Log("Updating text to: " + (string)data);
+        page.SetText((string)data);
+        Debug.Log("Text should have updated");
     }
 }

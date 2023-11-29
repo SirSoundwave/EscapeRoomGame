@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class OnSceneLoad : MonoBehaviour
 {
-    public CustomGameEvent loadEvents;
+    public List<DataManager> managers;
 
     private void Start()
     {
-        loadEvents.Invoke(this, null);
+        foreach(DataManager manager in managers){
+            manager.LoadData();
+        }
     }
 }
