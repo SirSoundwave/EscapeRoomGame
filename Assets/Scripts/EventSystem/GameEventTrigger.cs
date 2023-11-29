@@ -9,7 +9,7 @@ public class GameEventTrigger : MonoBehaviour
     [SerializeField]
     private GameEvent triggerEvent;
     [SerializeField]
-    private object data;
+    private int data;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,5 +18,10 @@ public class GameEventTrigger : MonoBehaviour
         {
             triggerEvent.Raise(this, data);
         }
+    }
+
+    public void RaiseEvent()
+    {
+        triggerEvent.Raise(this, data);
     }
 }
