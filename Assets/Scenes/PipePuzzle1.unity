@@ -685,6 +685,7 @@ MonoBehaviour:
   exitActions:
     m_PersistentCalls:
       m_Calls: []
+  exitScript: {fileID: 0}
   transition: {fileID: 547578663}
   transitionTime: 1
   saveTime: 1
@@ -5274,7 +5275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagCheck: 
   triggerEvent: {fileID: 11400000, guid: 71c886f429a28dd44b3d44657ffdcf43, type: 2}
-  data: 2
+  data: 3
 --- !u!4 &1960884631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4905693496942799547, guid: b8b62f9028a666046ae09188da9451a9, type: 3}

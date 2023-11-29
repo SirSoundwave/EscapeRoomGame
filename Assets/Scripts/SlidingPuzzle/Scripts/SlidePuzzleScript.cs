@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameScript : MonoBehaviour
+public class SlidePuzzleScript : MonoBehaviour
 {
     [SerializeField] private Transform emptySpace;
     [SerializeField] private AudioSource clickSound;
     [SerializeField] private ImagesScript[] images;
-    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameEvent winEvent;
+    [SerializeField] private GameEvent loseEvent;
     private bool shufflingComplete = false;
     private int emptySpaceIndex = 15;
     private Camera cam;
@@ -34,7 +34,7 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (shufflingComplete && Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
@@ -59,7 +59,7 @@ public class GameScript : MonoBehaviour
 
         if(!wonGame && shufflingComplete)
         {
-            Debug.Log("WE shouldn't be here!");
+            //Debug.Log("WE shouldn't be here!");
             int correctImages = 0;
 
             foreach (var a in images)
@@ -76,7 +76,7 @@ public class GameScript : MonoBehaviour
             if (correctImages == images.Length - 1)
             {
                 wonGame = true;
-                winPanel.SetActive(true);
+                winEvent.Raise(this, null);
             }
         }
     }
@@ -84,12 +84,6 @@ public class GameScript : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     void Shuffle()
@@ -168,5 +162,10 @@ public class GameScript : MonoBehaviour
         }
 
         return inversionsSum;
+    }
+
+    public bool GetShufflingComplete()
+    {
+        return shufflingComplete;
     }
 }

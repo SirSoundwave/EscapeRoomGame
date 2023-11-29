@@ -7,9 +7,9 @@ using TMPro;
 public class CountdownTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text countdownText;
-    [SerializeField] private GameObject loseScreen;
+    [SerializeField] private GameEvent loseEvent;
     private float currentTime;
-    private float startingTime = 90f;
+    public float startingTime = 90f;
     bool gameOver = false;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class CountdownTimer : MonoBehaviour
         if(currentTime <= 0 && !gameOver)
         {
             currentTime = 0;
-            loseScreen.SetActive(true);
+            loseEvent.Raise(this, null);
             gameOver = true;
         }
 
@@ -53,4 +53,10 @@ public class CountdownTimer : MonoBehaviour
             countdownText.text = minutes + ":" + (int)seconds;
         }
     }
+
+    public void StopTimer()
+    {
+        gameOver = true;
+    }
+
 }

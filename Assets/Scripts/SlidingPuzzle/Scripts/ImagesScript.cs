@@ -9,6 +9,7 @@ public class ImagesScript : MonoBehaviour
     public int image_nbr;
     public bool inRightPlace;
     public Vector3 correctPosition;
+    public static float imageSpeed = 5f;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,11 +19,11 @@ public class ImagesScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.020f);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, imageSpeed * Time.fixedDeltaTime);
 
-        if(targetPosition == correctPosition)
+        if(targetPosition == correctPosition && GameObject.FindObjectOfType<SlidePuzzleScript>().GetShufflingComplete())
         {
             inRightPlace = true;
         }
