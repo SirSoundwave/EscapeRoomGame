@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa4d75b0f3f8b743af933bf8b68ef3a, type: 3}
-  m_Name: Puzzle Info
+  m_Script: {fileID: 11500000, guid: b409d865ace02c64ebdd2631c680b076, type: 3}
+  m_Name: SceneReset
   m_EditorClassIdentifier: 
-  puzzles:
-  - puzzleName: Slide Puzzle
-    completed: 0
-  - puzzleName: Pipe Puzzle
-    completed: 0
-  - puzzleName: Potion Puzzle
-    completed: 0
+  listeners: []

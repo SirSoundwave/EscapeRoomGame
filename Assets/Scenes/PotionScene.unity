@@ -3424,7 +3424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagCheck: 
   triggerEvent: {fileID: 11400000, guid: 71c886f429a28dd44b3d44657ffdcf43, type: 2}
-  data: 0
+  data: 1
 --- !u!1 &1848118808
 GameObject:
   m_ObjectHideFlags: 0

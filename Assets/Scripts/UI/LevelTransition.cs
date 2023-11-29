@@ -7,6 +7,7 @@ public class LevelTransition : MonoBehaviour
 {
 
     public CustomGameEvent exitActions;
+    public OnSceneExit exitScript;
 
     public Animator transition;
 
@@ -66,7 +67,14 @@ public class LevelTransition : MonoBehaviour
 
     public void OnExit()
     {
+        
         exitActions.Invoke(this, null);
+        if(exitScript != null)
+        {
+            exitScript.OnExit();
+            while (!exitScript.ExitCompleted()) ;
+        }
+        
     }
 
 }

@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PotionScene.unity
     guid: d87a68c65d7dcf345a9aa82032b62909
   - enabled: 1
+    path: Assets/Scenes/SlidingPuzzle.unity
+    guid: 0aa4a00d990c55e40ad3aa94d11b65ef
+  - enabled: 1
     path: Assets/Scenes/Test.unity
     guid: c091d35f5a87a644e87223582553d890
   m_configObjects: {}
