@@ -15,12 +15,12 @@ public class SceneInfoManager : DataManager
 
     public DoorManager DoorManager;
 
-    private void Start()
+    private void Awake()
     {
         if (resetOnStart)
         {
             ResetData();
-            resetComplete = true;
+            
         }
     }
 
@@ -31,13 +31,17 @@ public class SceneInfoManager : DataManager
 
     public void ResetData()
     {
-        info.playerPosition = defaultInfo.playerPosition;
+        PlayerPrefs.SetFloat("PlayerX", defaultInfo.playerPosition.x);
+        PlayerPrefs.SetFloat("PlayerY", defaultInfo.playerPosition.y);
         info.doors = new List<DoorData>();
+        resetComplete = true;
+        //Debug.Log("Data reset");
     }
 
     public override void LoadData()
     {
-        player.transform.position = info.playerPosition;
+        Vector3 position = new Vector3(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"), 0);
+        player.transform.position = position;
         //Debug.Log("Loaded position: " + info.playerPosition.x + ", " + info.playerPosition.y);
         //Debug.Log("New loaded position: " + player.transform.position.x + ", " + player.transform.position.y);
         if (info.doors != null)
@@ -64,8 +68,9 @@ public class SceneInfoManager : DataManager
 
     public override void SaveData()
     {
-        
-        info.playerPosition = player.transform.position;
+
+        PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
         //Debug.Log("Saved position: " + player.transform.position.x + ", " + player.transform.position.y);
         //Debug.Log("New saved position: " + info.playerPosition.x + ", " + info.playerPosition.y);
         info.doors = new List<DoorData>();
