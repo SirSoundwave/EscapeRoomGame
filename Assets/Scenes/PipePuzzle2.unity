@@ -6211,7 +6211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagCheck: 
   triggerEvent: {fileID: 11400000, guid: 71c886f429a28dd44b3d44657ffdcf43, type: 2}
-  data: 0
+  data: 1
 --- !u!1001 &1917276705
 PrefabInstance:
   m_ObjectHideFlags: 0
