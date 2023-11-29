@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: ec73703329ea6754ba079f4d6d1d3a69, type: 2}
+  defaultInfo: {fileID: 0}
   player: {fileID: 1346996960}
   DoorManager: {fileID: 1600278650}
 --- !u!114 &269368206
@@ -368,6 +369,10 @@ MonoBehaviour:
   managers:
   - {fileID: 269368205}
   - {fileID: 269368202}
+  startMethods:
+    m_PersistentCalls:
+      m_Calls: []
+  startEvents: []
 --- !u!114 &269368207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31132,6 +31137,7 @@ GameObject:
   - component: {fileID: 1346996962}
   - component: {fileID: 1346996961}
   - component: {fileID: 1346996965}
+  - component: {fileID: 1346996966}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -31282,6 +31288,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.27
+--- !u!95 &1346996966
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346996960}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4491e8961398ee44c9e733df96a15b48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1565986988
 PrefabInstance:
   m_ObjectHideFlags: 0
