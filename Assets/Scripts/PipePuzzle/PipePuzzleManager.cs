@@ -8,10 +8,14 @@ public class PipePuzzleManager : MonoBehaviour
 
     public GameObject pipesHolder;
     private GameObject[] pipes;
-    private List<PipeScript> origins = new List<PipeScript>();
-    private List<PipeScript> ends = new List<PipeScript>();
+    private List<Pipe> origins = new List<Pipe>();
+    private List<Pipe> ends = new List<Pipe>();
+
+    public GameEvent pipeWipe;
 
     int totalPipes = 0;
+
+    int winTicks = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +25,7 @@ public class PipePuzzleManager : MonoBehaviour
         for(int i = 0; i < pipes.Length; i++)
         {
             pipes[i] = pipesHolder.transform.GetChild(i).gameObject;
-            PipeScript pipe = pipes[i].GetComponent<PipeScript>();
+            Pipe pipe = pipes[i].GetComponent<Pipe>();
             if (pipe.GetPipeType().Equals(PipeType.ORIGIN))
             {
                 origins.Add(pipe);
@@ -34,35 +38,58 @@ public class PipePuzzleManager : MonoBehaviour
         //Debug.Log("Total origins: " + origins.Count);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        RotatePipes();
+        WipePipes();
+    }
+
+    private void LateUpdate()
+    {
+        
         CheckFill();
         CheckWin();
+
+    }
+
+    private void WipePipes()
+    {
+        //Debug.Log("Wiping all");
+        foreach (GameObject pipe in pipes)
+        {
+            pipe.GetComponent<Pipe>().Wipe();
+        }
+    }
+
+    private void RotatePipes()
+    {
+        foreach (GameObject pipe in pipes)
+        {
+            pipe.GetComponent<Pipe>().setFilled(false);
+            pipe.GetComponent<Pipe>().UpdateFilled();
+            pipe.GetComponent<Pipe>().RotatePipe();
+        }
     }
 
     private void CheckFill()
     {
-        //Debug.Log("Pipes to check: " + pipes.Length);
-        foreach(var pipeObject in pipes)
-        {
-            pipeObject.GetComponent<PipeScript>().setFilled(false);
-        }
+        
 
-        Queue<PipeScript> check = new Queue<PipeScript>();
-        HashSet<PipeScript> finished = new HashSet<PipeScript>();
+        //Debug.Log("Checking fill");
+        Queue<Pipe> check = new Queue<Pipe>();
+        HashSet<Pipe> finished = new HashSet<Pipe>();
 
-        foreach(PipeScript pipe in origins)
+        foreach(Pipe pipe in origins)
         {
             check.Enqueue(pipe);
         }
 
         while(check.Count > 0)
         {
-            PipeScript pipe = check.Dequeue();
+            Pipe pipe = check.Dequeue();
             //Debug.Log("Pipe type: " + pipe.GetPipeType());
             finished.Add(pipe);
-            List<PipeScript> connected = pipe.ConnectedPipes();
+            List<Pipe> connected = pipe.ConnectedPipes();
             //Debug.Log("Connected pipes found: " + connected.Count);
             foreach(var connectedPipe in connected)
             { 
@@ -76,22 +103,19 @@ public class PipePuzzleManager : MonoBehaviour
             //Debug.Log("Pipes to check: " + check.Count);
         }
 
-        foreach(PipeScript filled in finished)
+        foreach(Pipe filled in finished)
         {
             filled.setFilled(true);
+            filled.UpdateFilled();
         }
-
-        for (int i = 0; i < pipes.Length; i++)
-        {
-            pipes[i].GetComponent<PipeScript>().UpdateFilled();
-        }
-
+        //Debug.Log("Updated fill");
     }
 
     private void CheckWin()
     {
+        //Debug.Log("Checking win");
         bool winCondMet = true;
-        foreach(PipeScript end in ends)
+        foreach(Pipe end in ends)
         {
             if (!end.getFilled())
             {
@@ -101,7 +125,17 @@ public class PipePuzzleManager : MonoBehaviour
         }
         if (winCondMet)
         {
-            WinChannel.Raise(this, null);
+            if(winTicks > 10)
+            {
+                WinChannel.Raise(this, null);
+            } else
+            {
+                winTicks++;
+            }
+            
+        } else
+        {
+            winTicks = 0;
         }
     }
 }

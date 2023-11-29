@@ -2,14 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class DoorData
+{
+    public string name;
+    public Vector3 position;
+    public bool opened;
+}
+
 public class Door : MonoBehaviour
 {
+
     public float speed = 5f;
 
     public GameObject endPos;
 
-
-    private bool opened = false;
+    [HideInInspector]
+    public bool opened = false;
 
     public void Update()
     {

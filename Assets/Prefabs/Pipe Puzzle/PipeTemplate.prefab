@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 138316310501485390}
   - component: {fileID: 6286647395321590991}
   - component: {fileID: -4164316773948040674}
+  - component: {fileID: 4128744950853975185}
   m_Layer: 0
   m_Name: PipeTemplate
   m_TagString: Untagged
@@ -108,6 +109,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   audioTrigger: {fileID: 11400000, guid: c51a3b853afd91142b3c2c94021ececb, type: 2}
+  pipeWipe: {fileID: 11400000, guid: 4750417d76217a243bf83c8cb4af3057, type: 2}
 --- !u!61 &6286647395321590991
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,6 +175,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PipeScript, Assembly-CSharp
         m_MethodName: setMoveable
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4128744950853975185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432038806774468188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0d07e87b4d4134f9500dc5ba5e6436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4750417d76217a243bf83c8cb4af3057, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 138316310501485390}
+        m_TargetAssemblyTypeName: Pipe, Assembly-CSharp
+        m_MethodName: Wipe
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

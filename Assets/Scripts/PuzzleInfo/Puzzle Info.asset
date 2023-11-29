@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzles:
   - puzzleName: Slide Puzzle
-    completed: 0
+    completed: 1
   - puzzleName: Pipe Puzzle
     completed: 1
   - puzzleName: Potion Puzzle
