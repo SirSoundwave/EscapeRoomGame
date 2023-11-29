@@ -74,6 +74,11 @@ public class LevelTransition : MonoBehaviour
             exitScript.OnExit();
             while (!exitScript.ExitCompleted()) ;
         }
+        SceneInfoManager infoManager = GameObject.FindObjectOfType<SceneInfoManager>();
+        if (infoManager != null && infoManager.resetOnStart)
+        {
+            while (!infoManager.GetResetComplete()) ;
+        }
         
     }
 

@@ -347,6 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: ec73703329ea6754ba079f4d6d1d3a69, type: 2}
   defaultInfo: {fileID: 11400000, guid: b7d13579842a69b4387078f333d63864, type: 2}
+  resetOnStart: 1
   player: {fileID: 0}
   DoorManager: {fileID: 0}
 --- !u!114 &165107946

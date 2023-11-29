@@ -19,18 +19,17 @@ public class PotionHandler : MonoBehaviour
 
         for (int i = 0; i < 3; i++) {
             System.Random rand = new System.Random();
-            int num = rand.Next(1, 6);
-            if (i > 0) {
-                while (num == numbers[i - 1]) {
-                    num = rand.Next(1, 6);
+            while (true)
+            {
+                int num = rand.Next(1, 6);
+                if (!numbers.Contains(num))
+                {
+                    numbers.Add(num);
+                    break;
                 }
             }
-            if (i > 1) {
-                while (num == numbers[i - 2]) {
-                    num = rand.Next(1, 6);
-                }
-            }
-            numbers.Add(num);
+            
+            
             Debug.Log(numbers[i]);
         }
         

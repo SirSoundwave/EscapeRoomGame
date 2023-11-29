@@ -8,9 +8,26 @@ public class SceneInfoManager : DataManager
     public SceneInfo info;
     public SceneInfo defaultInfo;
 
+    public bool resetOnStart = false;
+    private bool resetComplete = false;
+
     public GameObject player;
 
     public DoorManager DoorManager;
+
+    private void Start()
+    {
+        if (resetOnStart)
+        {
+            ResetData();
+            resetComplete = true;
+        }
+    }
+
+    public bool GetResetComplete()
+    {
+        return resetComplete;
+    }
 
     public void ResetData()
     {
