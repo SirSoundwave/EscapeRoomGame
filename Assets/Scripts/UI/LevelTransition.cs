@@ -11,6 +11,7 @@ public class LevelTransition : MonoBehaviour
     public Animator transition;
 
     public float transitionTime = 1f;
+    public float saveTime = 1f;
 
     public void EndScreen()
     {
@@ -28,6 +29,7 @@ public class LevelTransition : MonoBehaviour
 
         if (data is int)
         {
+            OnExit();
             StartCoroutine(LoadLevelTransition((int)data));
         }
     }
@@ -37,15 +39,14 @@ public class LevelTransition : MonoBehaviour
         if (data is int)
         {
             OnExit();
-            SceneManager.LoadScene((int)data);
+            StartCoroutine(LoadSceneDelayed((int)data));
         }
     }
 
     IEnumerator LoadLevelTransition(int index)
     {
-        OnExit();
         transition.SetTrigger("EndLevel");
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSeconds(Mathf.Max(transitionTime, saveTime));
         Debug.Log("Loading scene index " + index);
         SceneManager.LoadScene(index);
     }
@@ -54,7 +55,13 @@ public class LevelTransition : MonoBehaviour
     {
         OnExit();
         Debug.Log("Loading scene index " + (SceneManager.GetActiveScene().buildIndex + 1));
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadSceneDelayed(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    IEnumerator LoadSceneDelayed(int index)
+    {
+        yield return new WaitForSeconds(saveTime);
+        SceneManager.LoadScene(index);
     }
 
     public void OnExit()

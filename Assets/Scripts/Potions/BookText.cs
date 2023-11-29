@@ -15,6 +15,7 @@ public class BookText : MonoBehaviour
     public GameEvent rightPage;
 
     public void GenerateText(Component sender, object data) {
+        Debug.Log("Generating text");
         List<int> numbers = (List<int>) data;
         string left = "";
         string right = "";
